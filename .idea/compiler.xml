@@ -17,6 +17,20 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="SpringAopAdvice" />
+        <module name="SpringAopAspectJ" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SpringAopAdvice" target="1.5" />
+      <module name="SpringAopAspectJ" target="1.5" />
+      <module name="SpringAopAspectJinXml" target="1.5" />
+      <module name="SpringAopPoincutAdvisor" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

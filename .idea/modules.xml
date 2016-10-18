@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/SpringAopAdvice/SpringAopAdvice.iml" filepath="$PROJECT_DIR$/SpringAopAdvice/SpringAopAdvice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringAopAspectJ/SpringAopAspectJ.iml" filepath="$PROJECT_DIR$/SpringAopAspectJ/SpringAopAspectJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springAOP_AspectJ.iml" filepath="$PROJECT_DIR$/.idea/springAOP_AspectJ.iml" />
     </modules>
   </component>

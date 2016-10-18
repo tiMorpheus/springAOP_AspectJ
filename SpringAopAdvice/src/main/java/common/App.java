@@ -12,7 +12,7 @@ public class App {
         //CustomerService service = (CustomerService) context.getBean("customerServiceProxy");
         //CustomerService service = (CustomerService) context.getBean("customerServiceProxy2");
         //CustomerService service = (CustomerService) context.getBean("customerServiceProxy3");
-        CustomerService service = (CustomerService) context.getBean("customerServiceProxy4");
+        CustomerService service = (CustomerService) context.getBean("customerServiceProxy");
 
 
         System.out.println("*************************");

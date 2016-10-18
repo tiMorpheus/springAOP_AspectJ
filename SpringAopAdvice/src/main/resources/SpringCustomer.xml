@@ -4,54 +4,33 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
     <bean id="customerService" class="services.CustomerService">
-        <property name="name" value="Tymur Tolochko" />
+        <property name="name" value="Tymur" />
         <property name="url" value="http://www.github.com/tiMorpheus" />
     </bean>
 
-    <bean id="hijackBeforeMethodBean" class="aop.HijackBeforeMethod" />
-    <bean id="hijackAfterMethodBean" class="aop.HijackAfterMethod" />
-    <bean id="hijackThrowExceptionBean" class="aop.HijackThrowException" />
-    <bean id="hijackAroundMethodBean" class="aop.HijackAroundMethod" />
+    <bean id="hijackAroundMethodBeanAdvice" class="aop.HijackAroundMethod" />
 
-
-    <bean id="customerServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+    <bean id="customerServiceProxy"
+          class="org.springframework.aop.framework.ProxyFactoryBean">
 
         <property name="target" ref="customerService" />
 
         <property name="interceptorNames">
             <list>
-                <value>hijackBeforeMethodBean</value>
+                <value>customerAdvisor</value>
             </list>
         </property>
     </bean>
-    <bean id="customerServiceProxy2" class="org.springframework.aop.framework.ProxyFactoryBean">
 
-        <property name="target" ref="customerService" />
-
-        <property name="interceptorNames">
-            <list>
-                <value>hijackAfterMethodBean</value>
-            </list>
-        </property>
+    <bean id="customerPointcut"
+          class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedName" value="printName" />
     </bean>
-    <bean id="customerServiceProxy3" class="org.springframework.aop.framework.ProxyFactoryBean">
 
-        <property name="target" ref="customerService" />
-
-        <property name="interceptorNames">
-            <list>
-                <value>hijackThrowExceptionBean</value>
-            </list>
-        </property>
+    <bean id="customerAdvisor"
+          class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="pointcut" ref="customerPointcut" />
+        <property name="advice" ref="hijackAroundMethodBeanAdvice" />
     </bean>
-    <bean id="customerServiceProxy4" class="org.springframework.aop.framework.ProxyFactoryBean">
 
-        <property name="target" ref="customerService" />
-
-        <property name="interceptorNames">
-            <list>
-                <value>hijackAroundMethodBean</value>
-            </list>
-        </property>
-    </bean>
 </beans>
