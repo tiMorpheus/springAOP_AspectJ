@@ -9,7 +9,11 @@ public class App {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] {"SpringCustomer.xml"});
 
-        CustomerService service = (CustomerService) context.getBean("customerServiceProxy");
+        //CustomerService service = (CustomerService) context.getBean("customerServiceProxy");
+        //CustomerService service = (CustomerService) context.getBean("customerServiceProxy2");
+        //CustomerService service = (CustomerService) context.getBean("customerServiceProxy3");
+        CustomerService service = (CustomerService) context.getBean("customerServiceProxy4");
+
 
         System.out.println("*************************");
         service.printName();
